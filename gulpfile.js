@@ -30,9 +30,11 @@ gulp.task('fonts', function(args) {
 // LESS
 gulp.task('less', function() {
 	return gulp.src(config.dir.less + 'style.less')
-		.pipe(gp.less({ sourceMap: true }))
+		.pipe(gp.less({
+			sourceMap: true,
+			compress: true
+		}))
 		.pipe(gp.concat(pkg.name + '.css'))
-		.pipe(gp.minifyCss())
 		.pipe(gulp.dest(config.dir.dist + 'css/'));
 });
 
@@ -41,7 +43,8 @@ gulp.task('less', function() {
 gulp.task('jshint', function() {
 	gulp.src(config.files.js)
 	.pipe(gp.jshint())
-    .pipe(gp.jshint.reporter('default'));
+    .pipe(gp.jshint.reporter('default'))
+    .pipe(gp.jshint.reporter('fail'));
 
 });
 
