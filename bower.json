@@ -1,0 +1,20 @@
+{
+  "name": "marvel-api",
+  "version": "0.0.0",
+  "description": "React.js components and the Marvel API",
+  "license": "MIT",
+  "private": true,
+  "main": "build/marvel.js",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "src/vendor",
+    "js/tests"
+  ],
+  "dependencies": {
+    "bootstrap": ">= 3.1.1",
+    "font-awesome": ">= 4.0.3",
+    "jquery": ">= 2.1.0",
+    "react": ">=0.8.0"
+  }
+}

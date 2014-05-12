@@ -1,0 +1,12 @@
+# Dependency directory
+node_modules
+src/vendor
+
+# Build dir
+build
+
+# Users Environment Variables
+.api
+
+# Other files to ignore
+.DS_Store
