@@ -10,3 +10,5 @@ module.exports = {
 	key: YOUR_KEY
 };
 ```
+
+Or check out `marvel-api-01.png` or `marvel-api-02.png` for a sneak peak.
