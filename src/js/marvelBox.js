@@ -28,7 +28,6 @@ module.exports = (function () {
 			this.setState({ loading: true });
 			return $.get(url)
 				.then(function(json) {
-					console.log(json);
 					return json.data.results[0];
 				}.bind(this))
 				.always(function() {

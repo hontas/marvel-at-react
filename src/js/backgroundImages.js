@@ -27,7 +27,6 @@ module.exports = (function () {
 		getRandomComicImages: function() {
 			this.setState({ loading: true });
 			$.get(getUrl(), function (json) {
-				console.log(json);
 				var comic = json.data.results[0],
 					images = comic.images;
 
