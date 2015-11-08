@@ -4,26 +4,26 @@
   "description": "React.js components and the Marvel API",
   "main": "build/js/marvel.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "rm -rf build && mkdir build build/css build/js",
+    "prebuild": "npm run clean && npm run copy",
+    "build": "npm run scripts & npm run styles",
+    "scripts": "browserify src/js/main.js -d -s marvelApi | uglifyjs -o build/js/marvel-api.js",
+    "styles": "lessc src/less/style.less --source-map-map-inline --clean-css --verbose build/css/marvel-api.css",
+    "copy": "npm run markup && npm run fonts",
+    "lint": "lessc --lint --strict-imports src/less/style.less & jshint src/js/*.js",
+    "markup": "cp -p src/index.html build",
+    "fonts": "cp -p src/vendor/font-awesome/fonts/* build/fonts",
+    "test": "npm run lint",
     "postinstall": "bower install"
   },
   "author": "hontas",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hontas/marvel-at-react.git"
+  },
   "license": "MIT",
   "devDependencies": {
-    "browserify": "^3.46.1",
     "connect": "^2.15.0",
-    "gulp": "~3.5.2",
-    "gulp-browserify": "~0.4.6",
-    "gulp-clean": "~0.2.4",
-    "gulp-concat": "~2.1.7",
-    "gulp-jshint": "~1.5.0",
-    "gulp-less": "~1.2.1",
-    "gulp-livereload": "~1.1.1",
-    "gulp-load-plugins": "^0.5.0",
-    "gulp-minify-css": "~0.3.0",
-    "gulp-rename": "~1.1.0",
-    "gulp-uglify": "~0.2.1",
-    "load-grunt-tasks": "^0.4.0",
     "lodash": "^2.4.1"
   }
 }
